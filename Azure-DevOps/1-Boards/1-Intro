@@ -1,0 +1,46 @@
+
+-------------------------------------------------------------------------
+
+* 4 work process templates that determine how teams interact with the building blocks of work within the Azure DevOps framework
+
+-------------------------------------------------------------------------
+
+* Organization -> Project (4 Types of Processes)
+
+-------------------------------------------------------------------------
+
+1. Basic
+2. Agile
+3. Scrum
+4. CMMI
+
+-------------------------------------------------------------------------
+
+* Sprint
+
+	- Short, time-boxed period when a team completes a panned amount of work
+
+-------------------------------------------------------------------------
+
+* Epic -> Feature -> PBL (User Story) -> Task
+					 Bug -> Task
+
+-------------------------------------------------------------------------
+
+* Epic
+
+	- Ex: A Product / Website
+
+* Feature
+
+	- Ex: Web Page
+
+* PBL/Story
+	
+	- Ex: Backlog/Module
+
+* Task
+
+	- A specific task
+
+-------------------------------------------------------------------------

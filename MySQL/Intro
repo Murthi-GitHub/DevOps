@@ -1,0 +1,528 @@
+
+-------------------------------------------------------------------------
+
+MySQL is a Relational Database Management System (RDBMS)
+
+-------------------------------------------------------------------------
+
+What is a Database Table?
+	
+* A table is a collection of related data entries, and it consists of columns and rows
+
+-------------------------------------------------------------------------
+
+SQL Commands:
+
+
+SELECT:
+	
+	SELECT * FROM table_name;
+
+	SELECT CustomerName, City, Country FROM Customers;
+
+-------------------------------------------------------------------------
+
+SELECT DISTINCT:
+
+	Used to return only distinct (different) values.
+
+	SELECT DISTINCT column1 FROM table_name;
+
+-------------------------------------------------------------------------
+
+WHERE:
+
+	SELECT * FROM Customers
+	WHERE Country = 'Mexico';
+
+-------------------------------------------------------------------------
+
+AND OR NOT
+
+	SELECT * FROM Customers
+	WHERE Country = 'Germany' AND City = 'Berlin';
+
+	or
+
+	WHERE Country = 'Germany' OR City = 'Berlin';
+
+	or
+
+	WHERE NOT Country = 'Germany';
+
+-------------------------------------------------------------------------
+
+ORDER BY:
+
+	Used to sort the result-set in ascending (default) or descending order
+	To sort the records in descending order, use the DESC keyword.
+
+	SELECT * FROM Customers
+	ORDER BY Country;
+
+	or
+
+	ORDER BY Country ASC;
+
+	Descending
+
+	ORDER BY Country DESC;
+
+-------------------------------------------------------------------------
+
+INSERT INTO:
+
+	2 Ways
+
+	1. INSERT INTO table_name (column1, column2
+	   VALUES (value1, value2);
+
+	2. INSERT INTO table_name
+	   VALUES (value1, value2);
+
+-------------------------------------------------------------------------
+
+NULL:
+
+A field with a NULL value is a field with no value.
+
+Note: A NULL value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation!
+
+Test for NULL Values
+
+	SELECT column_names
+	FROM table_name
+
+	WHERE column_name IS NULL;
+
+	or
+
+	WHERE column_name IS NOT NULL;
+
+-------------------------------------------------------------------------
+
+UPDATE:
+
+	UPDATE Customers
+	SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+	WHERE CustomerID = 1;
+
+-------------------------------------------------------------------------
+
+DELETE:
+	
+	DELETE FROM Customers;
+
+	or
+
+	DELETE FROM Customers 
+	WHERE CustomerName='Alfreds Futterkiste';
+
+-------------------------------------------------------------------------
+
+LIMIT:
+
+	SELECT * FROM Customers LIMIT 3;
+
+-------------------------------------------------------------------------
+
+MIN:
+
+	SELECT MIN(column_name)
+	FROM table_name
+
+-------------------------------------------------------------------------
+
+MAX:
+
+	SELECT MAX(column_name)
+	FROM table_name
+
+-------------------------------------------------------------------------
+
+COUNT():
+	
+	SELECT COUNT(ProductID)
+	FROM Products;
+
+-------------------------------------------------------------------------
+
+AVG():
+
+	SELECT AVG(Price)
+	FROM Products;
+
+-------------------------------------------------------------------------
+
+SUM():
+
+	SELECT SUM(Quantity)
+	FROM OrderDetails;
+
+-------------------------------------------------------------------------
+
+LIKE:
+
+	SELECT * FROM Customers
+	WHERE CustomerName LIKE 'murthi%'; - at END
+
+	or
+
+	WHERE CustomerName LIKE '%murthi%'; - at Anywhere
+
+	or
+
+	WHERE CustomerName NOT LIKE 'a%'; - Doesn't start with a
+
+-------------------------------------------------------------------------
+
+IN:
+
+	To specify multiple values in a WHERE clause
+
+	SELECT * FROM Customers
+	WHERE Country IN ('Germany', 'France', 'UK');
+
+	or
+
+	WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+-------------------------------------------------------------------------
+
+BETWEEN:
+
+	SELECT * FROM Products
+	WHERE Price BETWEEN 10 AND 20;
+
+	or
+
+	WHERE Price NOT BETWEEN 10 AND 20;
+
+-------------------------------------------------------------------------
+
+Aliases:
+
+	Aliases are used to give a table, or a column in a table, a temporary name.
+
+	SELECT CustomerID AS ID
+	FROM Customers;
+
+-------------------------------------------------------------------------
+
+JOIN:
+
+	A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+	4 Types:
+
+		INNER JOIN: Returns records that have matching values in both tables
+		LEFT JOIN: Returns all records from the left table, and the matched records from the right table
+		RIGHT JOIN: Returns all records from the right table, and the matched records from the left table
+		CROSS JOIN: Returns all records from both tables
+
+-------------------------------------------------------------------------
+
+INNER JOIN:
+	
+	Orders and Customers are 3 different tables
+
+	SELECT Orders.OrderID, Customers.CustomerName
+	FROM Orders
+	INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+-------------------------------------------------------------------------
+
+LEFT JOIN:
+
+	SELECT Customers.CustomerName, Orders.OrderID
+	FROM Customers
+	LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+	
+-------------------------------------------------------------------------
+
+RIGHT JOIN:
+
+	SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+	FROM Orders
+	RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+
+-------------------------------------------------------------------------
+
+CROSS JOIN:
+
+	SELECT Customers.CustomerName, Orders.OrderID
+	FROM Customers
+	CROSS JOIN Orders;
+
+-------------------------------------------------------------------------
+
+Self Join:
+
+	A self join is a regular join, but the table is joined with itself.
+
+-------------------------------------------------------------------------
+
+UNION:
+
+	The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+	SELECT City FROM Customers
+	UNION
+	SELECT City FROM Suppliers
+	ORDER BY City;
+
+-------------------------------------------------------------------------
+
+GROUP BY:
+
+	Groups rows that have the same values into summary rows
+
+	SELECT COUNT(CustomerID), Country
+	FROM Customers
+	GROUP BY Country;
+
+-------------------------------------------------------------------------
+
+HAVING:
+
+	The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
+	SELECT COUNT(CustomerID), Country
+	FROM Customers
+	GROUP BY Country
+	HAVING COUNT(CustomerID) > 5;
+
+-------------------------------------------------------------------------
+
+EXISTS:
+
+	The EXISTS operator is used to test for the existence of any record in a subquery.
+
+	SELECT name, occupation FROM customer  
+	WHERE EXISTS (SELECT * FROM Orders   
+	WHERE customer.cust_id = Orders.cust_id); 
+
+-------------------------------------------------------------------------
+
+ANY:
+
+	Will be true if the operation is true for any of the values in the range.
+
+	SELECT ProductName
+	FROM Products
+	WHERE ProductID = ANY
+	  (SELECT ProductID
+	  FROM OrderDetails
+	  WHERE Quantity = 10);
+
+-------------------------------------------------------------------------
+
+ALL:
+
+	Will be true only if the operation is true for all values in the range.
+
+	SELECT ProductName
+	FROM Products
+	WHERE ProductID = ALL
+	  (SELECT ProductID
+	  FROM OrderDetails
+	  WHERE Quantity = 10);
+
+-------------------------------------------------------------------------
+
+INSERT INTO SELECT:
+
+	Copies data from one table and inserts it into another table.
+
+	INSERT INTO Customers (CustomerName, City, Country)
+	SELECT SupplierName, City, Country FROM Suppliers;
+
+-------------------------------------------------------------------------
+
+Comments:
+
+	Single line comments start with --
+
+	-- Select all:
+	SELECT * FROM Customers;
+
+
+
+	Multi-line comments start with /* and end with */.
+
+	/*Select all the columns
+	of all the records
+	in the Customers table:*/
+
+-------------------------------------------------------------------------
+
+CREATE DATABASE:
+
+	CREATE DATABASE databasename;
+
+-------------------------------------------------------------------------
+
+DROP DATABASE:
+
+	DROP DATABASE databasename;
+
+-------------------------------------------------------------------------
+
+CREATE TABLE:
+
+	CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ....
+    );
+
+-------------------------------------------------------------------------
+
+DROP TABLE:
+
+	DROP TABLE table_name;
+
+-------------------------------------------------------------------------
+
+TRUNCATE TABLE:
+
+	TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+	TRUNCATE TABLE table_name;
+
+-------------------------------------------------------------------------
+
+ALTER TABLE: 
+
+	The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+
+	ALTER TABLE table_name
+	ADD column_name datatype;
+
+-------------------------------------------------------------------------
+
+Constraints:
+
+	Can be applied at the time of Table creation or alter
+
+	SQL constraints are used to specify rules for the data in a table.
+
+	Constraints are used to limit the type of data that can go into a table
+
+	If there is any violation between the constraint and the data action, the action is aborted.
+
+
+
+	NOT NULL - Ensures that a column cannot have a NULL value
+	UNIQUE - Ensures that all values in a column are different
+	PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+	FOREIGN KEY - Prevents actions that would destroy links between tables
+	CHECK - Ensures that the values in a column satisfies a specific condition
+	DEFAULT - Sets a default value for a column if no value is specified
+	CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+-------------------------------------------------------------------------
+
+NOT NULL:
+
+	CREATE TABLE Persons (
+    ID int NOT NULL
+	);
+
+-------------------------------------------------------------------------
+
+UNIQUE:
+
+	CREATE TABLE Persons (
+    ID int NOT NULL
+    UNIQUE (ID)
+	);
+
+-------------------------------------------------------------------------
+
+
+PRIMARY KEY:
+	
+	The PRIMARY KEY constraint uniquely identifies each record in a table.
+
+	Primary keys must contain UNIQUE values, and cannot contain NULL values.
+
+
+
+	CREATE TABLE Persons (
+    ID int NOT NULL,
+    PRIMARY KEY (ID)
+	);
+
+-------------------------------------------------------------------------
+
+FOREIGN KEY:
+
+	The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+
+	A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+
+	The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+
+
+	CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+	);
+
+-------------------------------------------------------------------------
+
+CHECK:
+
+	The CHECK constraint is used to limit the value range that can be placed in a column.
+
+	CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CHECK (Age>=18)
+	);
+
+-------------------------------------------------------------------------
+
+DEFAULT:
+
+	The DEFAULT constraint is used to set a default value for a column.
+
+	CREATE TABLE Persons (
+    City varchar(255) DEFAULT 'Sandnes'
+	);
+
+-------------------------------------------------------------------------
+
+AUTO INCREMENT:
+
+	Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
+
+	CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT
+	);
+
+-------------------------------------------------------------------------
+
+CREATE VIEW:
+
+	In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+	CREATE VIEW view_name AS
+	SELECT column1, column2, ...
+	FROM table_name
+	WHERE condition;
+
+-------------------------------------------------------------------------
+
+Source:
+https://www.w3schools.com/mySQl/default.asp
+
+-------------------------------------------------------------------------

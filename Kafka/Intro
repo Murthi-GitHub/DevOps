@@ -1,0 +1,57 @@
+
+-------------------------------------------------------------------------
+
+What is Kafka?
+
+* Apache Kafka is a distributed publish-subscribe messaging system and a robust queue that can handle a high volume of data and enables you to pass messages from one end-point to another
+
+-------------------------------------------------------------------------
+
+Architecture:
+
+* Topics:
+	A stream of messages belonging to a particular category is called a topic.
+
+* Partition
+	Topics may have many partitions, so it can handle an arbitrary amount of data.
+
+* Offset
+
+	Each partitioned message has a unique sequence id called as offset.
+
+* Brokers
+
+	Brokers are simple system responsible for maintaining the pub-lished data.
+
+* Kafka Cluster
+
+	Kafka’s having more than one broker are called as Kafka cluster.
+
+* Producers
+	
+	Producers are the publisher of messages to one or more Kafka topics.
+
+* Consumers
+
+	Consumers read data from brokers
+
+* Leader
+
+	Leader is the node responsible for all reads and writes for the given partition. Every partition has one server acting as a leader.
+
+* Follower
+
+	Node which follows leader instructions are called as follower. If the leader fails, one of the follower will automatically become the new leader
+
+* Replicas of partition
+
+	Replicas are nothing but backups of a partition. Replicas are never read or write data. They are used to prevent data loss.
+
+-------------------------------------------------------------------------
+
+* Kafka broker has multiple server, one is leader, others are followers
+* Here, Each nodes have Partitions and Replicas
+
+So when producer sends message -> Topics -> Kafka Brokers (Partions|Replicas) -> Consumers
+
+-------------------------------------------------------------------------

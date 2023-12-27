@@ -1,0 +1,46 @@
+
+
+* Create Minimum 2 Nodes
+
+	20.25.66.87
+	20.232.189.231
+
+* Expose
+
+	5000 & 2377 in Manger
+
+* chmod 700 manager_key.pem 
+
+* ssh -i manager_key.pem azureuser@20.25.66.87
+
+
+* Install Docker on all Nodes
+
+	sudo apt-get update
+	sudo apt install docker.io
+	docker --version
+
+* Initiate Swarm on Manager
+
+	docker swarm init --advertise-addr 20.127.77.240
+
+* Join Worker
+
+    docker swarm join --token SWMTKN-1-62p0pqczhukdhl8zfuc8u13ym535u17hz0szijg2yzddszouyq-dezw2kw8syawbijew6aou0z13 20.127.77.240:2377
+
+
+
+
+* Now, we can't build docker image in Swarm Stack, have created already app image - cloudids/flaskapp:latest
+
+* If not available, just create and push and use same
+
+* Only 2 files important here
+
+	1. db folder
+	2. Stack File.yml
+
+
+* Once everything is ready, just deploy
+
+	docker stack deploy -c stack.yml test-stack

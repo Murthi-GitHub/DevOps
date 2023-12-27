@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  app:
+    image: 'cloudids/flaskapp:latest'
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    deploy:
+      mode: replicated
+      replicas: 2
+    networks:
+      - app-network 
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    networks:
+      - app-network 
+
+networks:
+  app-network:
+    driver: overlay

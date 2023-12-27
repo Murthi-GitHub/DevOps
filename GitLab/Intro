@@ -1,0 +1,78 @@
+
+-------------------------------------------------------------------------
+
+Continous Integration:
+
+* Is a Software development practice in which you build and test software everytime a developer pushes code to the application
+
+* TEST -> BUILD
+
+-------------------------------------------------------------------------
+
+Continous Delivery:
+
+* Is a software engineering approch in which Continous Integration, Automated Testing, and Automated Deployment capabilities allow software to be developed and deployed rapidly, reliably and repeatedly with minimum human intervention
+
+* TEST -> BUILD -> DEPLOY
+
+-------------------------------------------------------------------------
+
+Continous Deployment:
+
+* Is a software development practice in which every code change goes through entire pipeline and put into production automatically
+
+-------------------------------------------------------------------------
+
+GitLab Features:
+
+* Issue Boards
+* User Managements
+* Git Repo
+* CI
+* Wiki
+* Container Registry
+* Time Tarcker
+
+-------------------------------------------------------------------------
+
+Pipeline:
+
+* Are defined in .gitlab-ci.yml
+* Code Push -> GitLab -> Runner -> Install Dependencies | Run Test Jobs
+
+Ex:
+
+	image: ubuntu:latest
+
+	before_script:
+		- bundle install
+
+
+	stages:
+		- build
+		- test
+		- deploy
+
+	job_names:
+		stage: build
+		script:
+			- execute script
+
+		only:
+			- master
+
+		tags:
+			- docker
+
+
+* Pipe line is a group of jobs that executed in stages
+* All jobs in a stage are executed in parallel
+
+-------------------------------------------------------------------------
+
+Runners:
+	
+* Are open source projects that used to run jobs and send result back to GitLab
+* Written in Go
+
+-------------------------------------------------------------------------

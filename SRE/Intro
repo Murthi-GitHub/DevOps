@@ -1,0 +1,186 @@
+
+-------------------------------------------------------------------------
+
+SLA vs SLO vs SLI
+
+* SLA (service level agreement)
+	Contract between You and Service Provider about measurable metrics like uptime, responsiveness, and responsibilities.
+
+* SLO (service level objective)
+	Is a goal that service provider wants to reach
+
+* SLI (service level indicator)
+	Current Status/Metric of service
+
+SLA -> SLO -> SLI
+
+-------------------------------------------------------------------------
+
+Why web app is slow?
+
+* Overloaded server
+* Database request too slow to execute or poorly written
+* Issues at the load balancing level (overloading one server)
+* Slow Web request
+* Slow application code execution
+* DNS configuration issue
+* Network performance issue
+
+-------------------------------------------------------------------------
+
+How to troubleshoot when web app is slow?
+
+* Adding more CPU/RAM
+* Add cache
+* Optimizing DB queries
+* Extract the database to a different server
+* Use proper configuration settings
+
+* Check logs
+* Monitor dashboards/infra
+
+-------------------------------------------------------------------------
+
+What is SSL Certificate? (Secure Sockets Layer)
+
+* A bit of code on web server that provides security for online communications
+* SSL certificate enables an encrypted connection
+* More commonly called TLS (Transport Layer Security), is a protocol for encrypting Internet traffic and verifying server identity 
+
+-------------------------------------------------------------------------
+
+What is inside SSL cert?
+
+* Domain name
+* Which person, organization, or device
+* Which certificate authority issued it
+* Certificate authority's digital signature
+* Issue date
+* Expiration date
+* The public key (the private key is kept secret)
+
+-------------------------------------------------------------------------
+
+Difference between Public IP and Private IP?
+
+Public IP:
+* Can be accessed directly over internet 
+
+Private IP:
+* Are not routed on the Internet, and no traffic can be sent to them from Internet
+* Are only supposed to work within local network
+
+-------------------------------------------------------------------------
+
+What is Error Budget?
+
+An error budget is maximum amount of time, that a technical system can fail without contractual consequences
+
+-------------------------------------------------------------------------
+
+What is Observability?
+
+Is a technical solution that focuses on helping IT firms understand what processes are going on in an application by looking at the application’s output
+
+-------------------------------------------------------------------------
+
+DevOps:
+
+* DevOps teams are focused on core development
+* They build, test, deploy and monitor applications
+* They are writing code and pushing it out into production to get an application line to help solve a problem
+
+-------------------------------------------------------------------------
+
+SRE:
+
+* Working on implementation of core
+* They are constantly giving feedback back into that core development group
+Ex:
+	Hey, something that you guys have designed isn't working exactly the way that you think that it is
+
+
+* SREs are more investigative
+* They are willing to do the analysis to find why something has gone wrong
+* They want to ensure that same problems don’t keep happening
+* They want to automate repetitive tasks
+
+-------------------------------------------------------------------------
+
+Process:
+
+When execution of a program allows you to perform the appropriate actions specified in the program
+
+-------------------------------------------------------------------------
+
+Difference Between Process and Thread:
+
+* Thread is the segment of processes.
+* Process is not lightweight. Threads are lightweight.
+* The process takes more time to terminate. Threads take less time to terminate.
+* The process does not share data. Threads share data with each other.
+
+-------------------------------------------------------------------------
+
+Why error budgets is used?
+
+Error budget encourages the teams to minimize real incidents and maximize innovation
+
+-------------------------------------------------------------------------
+
+What is CI/CD?
+
+Continuous Integration:
+
+	*Developers frequently merge code changes into a central repository where automated builds and tests run
+
+
+Continuous Delivery:
+
+	* Automatically deploys all code changes to a testing or production environment after build stage
+
+
+Continuous Deployment:
+
+	* Every change that passes all stages of production pipeline is released to customers
+	* There's no human intervention, and only a failed test will prevent a new change to be deployed to production
+
+-------------------------------------------------------------------------
+
+What is an incident command system?
+
+Is a standardized approach to the command, control, and co-ordination of emergency response
+
+-------------------------------------------------------------------------
+
+Describe boot process of Linux System:
+
+	* BIOS runs a boot loader
+	* Boot loader finds kernel image on disk and loads into memory
+	* The kernel initializes devices and their drivers
+
+-------------------------------------------------------------------------
+
+Incident:
+
+* Incident is a single unplanned event that causes a service disruption
+
+-------------------------------------------------------------------------
+
+Problem:
+
+* Problem is a cause of one or more incidents
+
+-------------------------------------------------------------------------
+
+Principles of SRE:
+
+* Embracing Risk
+* Service Level Objectives
+* Eliminating Toil (Tough Work)
+* Monitoring Distributed Systems
+* Automation
+* Release Engineering
+* Simplicity
+
+-------------------------------------------------------------------------

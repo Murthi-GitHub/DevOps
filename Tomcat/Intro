@@ -1,0 +1,71 @@
+
+-------------------------------------------------------------------------
+
+* A web server for java based web apps
+
+* Free & Open Source
+
+* Supports Java Technologies
+	* Java Servlet
+	* JSP - Java Server Page
+
+* Also called servlet container
+
+* Above Java 1.8+
+
+* 8080
+
+-------------------------------------------------------------------------
+
+* Servlet
+
+	- Is a specialized Java class in web app
+	- Can handle server requests like GET, POST, PUT, DELETE
+	- JSP is Request - Compile JSP by JDK -> Executed by Servlet Container - O/P HTML
+
+-------------------------------------------------------------------------
+
+* End To End Life Cycle Management
+* 4 Core Parts
+
+	- Catalina
+	- Jasper
+	- Coyote
+	- Cluster
+
+-------------------------------------------------------------------------
+
+* Catalina
+
+	- Handles life cycle of servlet
+	- init(), service(), destroy()
+
+-------------------------------------------------------------------------
+
+* Jsper
+
+	- JSP Parser Engine
+	- Converts JSP to Servlet
+
+-------------------------------------------------------------------------
+
+* Coyote
+
+	- Is Network service
+	- Transmits web requests to Container and End User
+	- Also to integrate with another Web Server
+
+-------------------------------------------------------------------------
+
+* Cluster
+
+	- As the name says
+	- Used for load balancing
+
+-------------------------------------------------------------------------
+
+/tomcat/webapps - apps
+/tomcat/bin - startup.sh
+/tomcat/conf - configurations ex: service.xml for manager username and password
+
+-------------------------------------------------------------------------

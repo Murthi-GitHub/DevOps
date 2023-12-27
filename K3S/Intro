@@ -1,0 +1,449 @@
+
+
+K3S:
+	- Deploy Q3+Voice & TEST (PROD Base Test)
+	- Then Use VMs and Load Test on Swarm
+	- Which is Better?
+
+------------------------------------------------
+
+Switch Role -> Mumbai Region
+
+ssh -i onprem-poc.pem ubuntu@13.233.162.68
+ssh -i onprem-poc.pem ubuntu@65.1.85.35
+ssh -i onprem-poc.pem ubuntu@13.126.28.47
+ssh -i onprem-poc.pem ubuntu@13.233.229.55
+	
+------------------------------------------------
+
+curl -sfL https://get.k3s.io | sh -
+
+sudo cat /var/lib/rancher/k3s/server/node-token
+
+curl -sfL https://get.k3s.io | K3S_URL=https://ip-172-31-43-127:6443 K3S_TOKEN=K109b2acc529085bf836924c4c82db60a5e51ca2ed906cac80b96350176d70be6e1::server:94104c0341c67fedecaa48fe5b5e4b61 sh -
+
+
+KubeConfig:
+sudo cat /etc/rancher/k3s/k3s.yaml
+
+rm -rf /home/ubuntu/.kube/config
+vi /home/ubuntu/.kube/config
+
+
+helm install longhorn longhorn/longhorn \
+  --namespace longhorn-system \
+  --create-namespace \
+  --set defaultSettings.defaultDataPath="/longhorn/"
+
+k get pod -n longhorn-system
+
+
+helm install mytest onprem-poc-k3s
+helm upgrade mytest onprem-poc-k3s
+
+------------------------------------------------
+
+helm uninstall mytest -n default
+helm uninstall longhorn -n longhorn-system
+
+/usr/local/bin/k3s-agent-uninstall.sh
+/usr/local/bin/k3s-uninstall.sh
+
+
+
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------
+
+2 seeds dir removed
+
+------------------------------------------------
+
+git clone https://murthi-dn@bitbucket.org/yellowmessenger/onprem-poc-k3s.git
+5ncVWL6YCChWFkPdUJPs
+
+------------------------------------------------
+
+git clone https://github.com/longhorn/longhorn.git
+
+helm install longhorn longhorn/longhorn \
+  --namespace longhorn-system \
+  --create-namespace \
+  --set defaultSettings.defaultDataPath="/longhorn/"
+
+------------------------------------------------
+
+k label nodes ip-172-31-43-127 node.longhorn.io/create-default-disk=true
+k describe no ip-172-31-43-127
+
+------------------------------------------------
+
+scp -r -i onprem-poc.pem K3S/Test-1 ubuntu@13.233.162.68:/home/ubuntu
+
+systemctl status k3s.service
+systemctl status k3s-agent.service
+
+------------------------------------------------
+
+sudo cat /etc/rancher/k3s/config.yaml
+cluster-init: true
+sudo systemctl restart k3s
+
+https://docs.k3s.io/installation/configuration
+
+
+https://www.youtube.com/watch?v=OZSuDvYaQac
+K3S Lightweight Kubernetes Cluster
+Engineering with Morris
+
+------------------------------------------------
+
+On Each Node:
+sudo apt-get install open-iscsi
+
+NFSv4 client on Each Node (For ReadWriteMany):
+sudo apt-get install nfs-common
+
+On Master Node:
+sudo kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.5.1/deploy/longhorn.yaml
+
+k get pod -n longhorn-system
+
+
+
+kubectl port-forward -n longhorn-system svc/longhorn-frontend 8080:80
+
+https://docs.k3s.io/storage
+https://longhorn.io/docs/1.5.1/deploy/install/install-with-kubectl/
+
+------------------------------------------------
+
+
+Deploys!!!
+
+
+
+
+sudo apt-get update
+sudo snap install kubectx --classic
+
+
+
+
+Troubleshoot:
+-------------
+
+While uninstalling K3S, scripts were stuck in umount, from logs i got the path and ran below with force
+sudo umount -f <path from logs>
+
+
+
+------------------------------------------------
+
+
+
+Created n attached volume at AWS
+
+EC2 -> Storage -> Volume ID -> Create Volume (150)
+EC2 -> Storage -> Volume ID -> Action (Attach Volume) - Select Instace ID, leave default path /dev/sdf
+
+
+On Each Node:
+
+sudo su -
+lsblk
+mkfs.ext4 /dev/nvme1n1
+
+cd /
+mkdir /longhorn
+
+mount /dev/nvme1n1 /longhorn
+
+mount |grep longhorn
+
+mount -a
+
+
+
+vi /etc/fstab
+/dev/nvme1n1 /longhorn ext4 defaults 0 0
+
+reboot
+
+
+change default storage path in longhorn helm
+
+
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Powerfule but complex
+
+Master - Node/Worker
+Each Node Has Multiple PODs
+Each POD can have multiple container
+
+3 Processes need in all Nodes:
+
+1. Container Runtime & Node (docker)
+2. Kubelet
+	- Interface bw Container Runtime & Node
+	- Should start POD with a container
+	- Assign Reources from Node to container
+3. Kube Proxy
+	- Forward Request/Network communication between service by K8S Services Object
+	- It works logically
+
+
+
+How to:
+	- Schedule PODs on Which Node?
+	- If any POD Dies, Who Monitors?
+	- Re-Schedule / Restart PODs?
+	- Join New Node?
+
+Above are done by Master Nodes!!!
+
+
+4 Processes need in all Master Nodes:
+
+1. API Server
+	- Is API Gateway to cluster
+	- User talks to this through Kubectl/k8S Ui...etc
+	- Then it processes and forwards to other processes in cluster
+	- Also for good authentications and only 1 entry to K8S
+
+2. Scheduler
+	- When user sends requests to schedule/create pods
+	- Once API Server Processes request, send to scheduler
+	- Works in intelligent way, where/which Nodes has resources
+	- Then asks to Kubelet (actual process) to schedule PODs
+
+3. Controller Manager
+	- Monitors PODs
+	- If any POD dies, ask Scheduler to create another POD
+
+4. ETCD
+	- key value store of a cluster state
+	- Cluster Brain/Memory
+	- All other master processes works based on data available on etcd
+
+
+Services:
+
+1. ClusterIP
+2. NodePort
+3. Headless
+4. LoadBalancer
+
+
+
+Advantages Services:
+	- Stable IP Address:
+		- For each POD an IP will be assigned, if POD dies, another IP comes, so not a good things, so we use service which will have a Static IP always, if died POD comes up, same IP gets assigned
+
+	- LoadBalancing:
+		- Single Service can balance load with multiple replicas of POD
+
+	- Communication in inside/outside cluster
+
+
+
+1. Cluster IP
+	- Most used and default type
+	- Even if you don't specify in service, automatically takes this type
+
+	- DNS -> Ingress (api-gateway) -> ClusterIP (service) -> POD
+
+
+2. Headless Service
+	- In Stateful apps like Databases is used
+	- Only Some PODs are to get write, some PODs to read
+	- So as we need to go with specific pods (write DBs), used headless
+	- Headless is used to communicate with specific PODs
+
+	- Here also Cluster IP will be there, along with it, Headless Service will be there
+
+
+3. Node Port
+	- Here directly an IP (cluster IP) is assigned on each Node, at the end, this IP talks to POD directly
+	- DNS -> NodePort -> POD
+	- Node very efficient, not secure - opening port to directly talk with POD
+
+4. Load Balancer
+	- Is combination of ClsuterIP & NodePort
+
+	- DNS -> Loadbalancer -> NodePort IP -> Cluster IP -> POD
+
+	- Outside world don't talk to NodePort IP directly, but have Loadbalancer in between
+
+
+
+------------------------------------------------
+
+
+
+K3S:
+
+Light Weight K8S by Rancher
+Both Master Process, Node Processes (components) can be run in single Node
+Everything we need is packged in a sinle Binary
+
+
+
+DataStore:
+	- External:
+		- Postgres
+		- MySQL
+		- SQLite
+		- ETCD
+
+	Embedded:
+		- SQLite
+		- ETCD
+
+
+Kube-Proxy
+in-cluster network traffic coming from and going to the host.
+
+
+Flannel
+works as a container network interface (CNI) for cluster networking in K3s.
+
+
+
+
+6443 api-server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================================================================
+
+
+
+https://metallb.universe.tf/configuration/migration_to_crds/
+
+https://docs.k3s.io/datastore/cluster-loadbalancer
+
+
+
+
+k get cm -n services -o yaml pubic-ip-pool-config > config.yaml
+
+docker run -d -v $(pwd):/var/input quay.io/metallb/configmaptocrs
+
+
+
+
+
+k run configmaptocrs -n services --restart=Never -it --rm --image overriden --overrides '
+{
+  "spec": {
+    "containers": [
+      {
+        "name": "configmaptocrs",
+        "image": "quay.io/metallb/configmaptocrs",
+        "tty": false,
+        "stdin": false,
+        "command": [
+          "/configmaptocrs",
+          "-source",
+          "config",
+          "-only-data",
+          "-stdout"
+        ],
+        "volumeMounts": [
+          {
+            "name": "config",
+            "mountPath": "/var/input"
+          }
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "config",
+        "configMap": {
+          "name": "pubic-ip-pool-config"
+        }
+      }
+    ]
+  }
+}'
+
+
+
+
+
+------------------------------------
+
+
+
+
+Youtube
+
+
+
+1.
+3rd point in 
+https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/infrastructure-setup/ha-k3s-kubernetes-cluster
+
+2.
+expose to node port
+
+
+3.
+rancher
+
+
+
+https://www.youtube.com/watch?v=gMsEFa8h400
+https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/infrastructure-setup/ha-k3s-kubernetes-cluster
+
+
+
+

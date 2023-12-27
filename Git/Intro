@@ -1,0 +1,77 @@
+
+-------------------------------------------------------------------------
+
+Version Control Software:
+
+-------------------------------------------------------------------------
+
+git add
+	add files
+
+git branch 
+	see branch
+
+git checkout branch-name
+	checkout
+
+git clean
+	Removes untracked files
+
+git clone
+	clone new repo
+
+git commit -m "message"
+	commit changes
+
+git commit --amend
+	change recent files
+
+git fetch
+	Fetching a branch from another repository, doesn't integrate into your local repository directly
+
+git init
+	initialze new repo
+
+git log
+	see previous history
+
+git merge
+	A powerful way to integrate changes from divergent branches
+
+git pull
+	pull changes from online
+
+git push origin branch
+	push code 
+
+git rebase
+	Rebasing lets you move branches around, which helps you avoid unnecessary merge commits
+
+git reflog
+	Git keeps track of updates to the tip of branches using a mechanism called reflog
+
+git remote
+	A convenient tool for administering remote connections
+
+git reset
+	Undoes changes to files
+
+git revert
+	Undo a commit
+
+git status
+	check status
+
+git stash
+	enables you to switch branches without committing the current branch
+
+git ignore
+	used to specify intentionally untracked
+
+git rm
+	remove files
+
+git diff
+	see difference
+
+-------------------------------------------------------------------------

@@ -1,0 +1,361 @@
+
+-------------------------------------------------------------------------
+
+Do you have any questions for me?
+
+* May i know day to day activity?
+* What are the company's goals for the upcoming years?
+* What is the greatest challenge facing the company?
+* Where you want me to achieve in the next 2-3 months?
+
+-------------------------------------------------------------------------
+
+Tell me about a time when you handled a challenging situation?
+
+* APM (Application Performance Monitoring)
+
+-------------------------------------------------------------------------
+
+Tell me about a time when you made a mistake. What did you do to correct it?
+
+* I was beginner to Kafka, didn't know much about it
+* Forgot to set Kafka Retention Period back to 24 HRs after clearing lags by 1 sec
+* Fortunately i had backup data and push again
+
+-------------------------------------------------------------------------
+
+How do you deal with conflict?
+
+* I actively keep my attitude good during a conflict situation
+* This means that I listen to the other person’s point of view without becoming defensive
+* I also try to move the to a private space to avoid further complications
+
+-------------------------------------------------------------------------
+
+Can you recall a time of conflict with a coworker?
+
+* We had owned a custom tool which generates reports
+* The data was not generated properly
+* Other person was reacted defensively
+* I kept calm and tried to make him understand that i didn't do
+* He became calm after telling that i show you logs who did it
+* Then we checked hostory and somehow our interns did it
+
+-------------------------------------------------------------------------
+
+How do you work under pressure?
+
+* I use a few strategies to help me stay focused
+* First, I learn to accept the situation
+* If I have a pressing deadline, I work to prioritize my most important tasks and get my work done
+* I find that being adaptable helps me handle pressure quite well
+
+* Another strategy I use is finding a positive mindset
+* I try to reframe every challenge as an opportunity
+* This helps me stay motivated and excited to try more difficult tasks.
+
+-------------------------------------------------------------------------
+
+How you set goals?
+
+* Write down your goals
+* Be very specific about goals
+* Pick an exact due date
+* Determine the reason for your goal
+* Choose measurable goals
+* Devise a massive action plan
+* Identify any mental objections
+* Manage your time effectively
+* Monitor your progress and adjust your approach
+
+-------------------------------------------------------------------------
+
+How you motivate others?
+
+* Share your vision and set clear goals
+* Communicate with your staff
+* Encourage teamwork
+* A healthy office environment
+* Give positive feedback and reward your team
+* Provide opportunities for development
+
+-------------------------------------------------------------------------
+
+Tell me about a goal you failed to achieve?
+
+* My friend was on leave 
+* So i had to write a dockerfile for some tool
+* But i was completely new for it, didn't had much practical experience
+* I tried but could not make it up
+* Fortunately he was back and taught me
+* Outcome is, i learnt practically or better than before 
+
+-------------------------------------------------------------------------
+
+What was your proud moment at the job
+
+* Migration Messup on midnight
+
+-------------------------------------------------------------------------
+
+If you make a mistake, how do you fix it?
+
+* When I make a mistake, I immediately communicate it
+* In my first role as a Software Engineer, i had missed to set Kafka retention
+* In this situation, I communicated my mistake and resolved it immediately
+
+-------------------------------------------------------------------------
+
+What motivates you at work?
+
+* I am motivated by the desire to help guide all of my team members to success
+
+-------------------------------------------------------------------------
+
+What are your strengths?
+
+* Leadership
+* Good Team Player
+* Always Happy
+* Self motivated
+* Quick Learning
+* Taking initiative
+* I always give my best
+* When i'm passion about something, i love to work for long hours
+
+-------------------------------------------------------------------------
+
+What are your weekness?
+
+* When i'm passion about something, i love to work for long hours, due to this reason i may face some little health issues
+* Ex: Not having proper food, so decreased weight...etc
+* Ex: Rajasthan Case
+
+-------------------------------------------------------------------------
+
+What difficult situation have you faced in the past?
+
+* I went to some place where i had no proper food
+* Now i'm learning coocking
+
+-------------------------------------------------------------------------
+
+How do you react to challenging working situations?
+
+* Even though there are unexpected situations in life, there will always be a way out
+* When I am sent to work in a strange place where people speak a different language, I will build a relationship with these people by trying to learn their language and speaking it often
+
+-------------------------------------------------------------------------
+
+Ever took a feature from Client?
+
+* No logs in Kibana for WorkFlow in Windows
+
+-------------------------------------------------------------------------
+
+How would you rate yourself on a scale of 1 to 10?
+
+* I would like to rate myself an 8
+* 8 because I know that I am not perfect and there is always a scope for learning and improvement
+* Continuous learning is the most fundamental part of personal and professional growth
+
+-------------------------------------------------------------------------
+
+What is your biggest achievement so far?
+
+* My biggest accomplishment is overcoming my fear of failure
+* When i started career, Becoming SRE/DevOps was my biggest passion
+
+-------------------------------------------------------------------------
+
+What are your short term goals?
+
+* To work in a reputed organization like yours where I can enhance my technical skills and knowledge or domain expert
+* To utilize all the opportunities that company provides me
+
+-------------------------------------------------------------------------
+
+What are your long term goals?
+
+* I'd like to be in a great position where i can lead big team, and make company great by giving tough competition to it's competetors
+
+-------------------------------------------------------------------------
+
+Why should we hire you?
+
+* I am a self-motivated person who can learn fast
+* Looking at the job description and my experience in the field of DevOps/SRE, I am confident that I am very much suitable for this role
+* I am a great team player
+* I think this position will support my interest and also give me interesting and exciting opportunities to contribute to the growth of this organization
+* I am very much excited about this opportunity since it's my passion
+
+-------------------------------------------------------------------------
+
+What would you do if you were working under a bad boss?
+
+* I will try my best to understand his personality and get to know what their problem is
+* I will make note of the things that would make him angry and will work on avoiding that
+* I will also try asking my colleagues how they have worked on dealing with him
+* If things get worse, I will contact HR to get a solution regarding this
+
+-------------------------------------------------------------------------
+
+Would you like to work overtime or odd hours?
+
+* I am ok with it. It an extra effort means I am doing something for the company, I'll be happy to do it
+
+-------------------------------------------------------------------------
+
+What is more important to you: the money or the work?
+
+* I would say that work is more important
+* If we work and achieve Company goals then obviously money would follow
+
+-------------------------------------------------------------------------
+
+Would you lie for the company?
+
+* It depends on the situation if my lie creates a positive impact on the company and It was useful for many people, then I will lie
+
+-------------------------------------------------------------------------
+
+What does success mean to you?
+
+* If I feel I am making a difference working with a team of people to make a more profitable company. It is a success for me
+
+-------------------------------------------------------------------------
+
+Describe yourself in one word?
+
+* Original, genuine, logical, incredible, focused, curious, active, quick, balanced, achiever, etc. 
+
+-------------------------------------------------------------------------
+
+What is the difference between confidence and overconfidence?
+
+* Yes, I can do this work is self-confidence. But only I can do this work is overconfidence
+
+-------------------------------------------------------------------------
+
+What is the difference between smart work and hard work?
+
+* Without being a hard worker, we can't be a smart worker
+* Smart work comes from the hard work
+* That means everyone has to specialize in his work to become a smart worker
+* So, all of us have to do hard work to achieve smart work
+* So hard work increases your accuracy, and smart work increases accuracy as well as efficiency
+
+-------------------------------------------------------------------------
+
+Just imagine that you have enough money to retire right now. Would you?
+
+* When i'm passionate about work, and love it, i would say no
+* Yes, it may be that I would take a break to spend quality time with my family
+
+-------------------------------------------------------------------------
+
+Do you have any blind spot?
+
+* I would say everyone has blind spots and I would too that's why I believe in teamwork because when you are a team
+
+-------------------------------------------------------------------------
+
+How do you handle stress, pressure, and anxiety?
+
+* I believe in working in a planned way and finishing my work regularly
+* I always react to situations, rather than to stress.
+* I do meditation regularly, In this way, I remove my stress
+
+-------------------------------------------------------------------------
+
+What is the disappointment in your life?
+
+* Rajasthan case
+
+-------------------------------------------------------------------------
+
+What makes you angry?
+
+* I am not a short-tempered person, but I feel a bit of annoyance when someone disturbs me in my work without a genuine reason
+
+-------------------------------------------------------------------------
+
+What was the most difficult decision you have made in your past life?
+
+* My toughest decision was to take admission in B.tech 
+* I belong to a middle-class family, and my father was not in favor of taking admission, but I convinced him, and today he is very happy
+
+-------------------------------------------------------------------------
+
+What was the biggest mistake of your life?
+
+* Kafka Clean
+
+-------------------------------------------------------------------------
+
+How do you deal with an angry or irritated customer?
+
+* I would ask the customer to explain his problem and carefully listen to him. After that, I do my best to solve his problem
+* If that problem is not regarding my work area, I speak to someone who could help him immediately
+
+-------------------------------------------------------------------------
+
+What is your greatest fear?
+
+* Since i'm a govt. school student, before some time, public speaking has been a challenge for me
+* I was very nervous and hesitate while giving any presentation
+* But not now, came over it
+
+-------------------------------------------------------------------------
+
+Explain the difference between group and team?
+
+* Any set of people who stand together without any purpose or goal can be called as Group
+* when more than 2 people work towards a common goal, can be called as a Team
+
+-------------------------------------------------------------------------
+
+What will you do if you don't get this position?
+
+* I have high hopes that I will be selected
+* In case if I will not select, I will continue to look for another job in the same field that will fit my schedule and goals
+
+-------------------------------------------------------------------------
+
+What makes you happy?
+
+* I feel happy when I accomplished my task
+* I also feel happy when I achieved my goals
+* Holiday with my family and friends also makes me happy
+
+-------------------------------------------------------------------------
+
+Is there anything which makes you different from other candidates?
+
+* I am not familiar with the others whom you are interviewing but
+* I am sure many talented people applying for the job. 
+* But because of my background and the problem-solving skills, I considered myself to be a strong candidate for this position
+
+-------------------------------------------------------------------------
+
+What are your expectations from the company?
+
+* I would like to work in the company where I can get the opportunity to learn and enhance my skill to become a better professional in the future
+
+-------------------------------------------------------------------------
+
+What demotivates you?
+
+* Feeling like I'm not making any progress demotivates me
+* I like to have a clear, important goal to work toward and get excited about
+* This is why I especially love tracking data
+
+-------------------------------------------------------------------------
+
+
+
+APM
+Lead Team
+No Logs For Workflow
+Migration
+Kafka Cleaned

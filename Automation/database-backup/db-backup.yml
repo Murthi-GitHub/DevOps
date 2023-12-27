@@ -1,0 +1,19 @@
+version: '3.7'
+
+networks:
+  network:
+    external: true
+    
+services:
+  dbbackup:
+    image: yellowmessenger.azurecr.io/dbbackup:v4
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      network:
+        aliases:
+          - dbbackup
+    volumes:
+      - /chatbotShared/data/dbbackup:/dbbackup
+

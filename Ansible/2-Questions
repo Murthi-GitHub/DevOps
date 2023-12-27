@@ -1,0 +1,39 @@
+
+-------------------------------------------------------------------------
+
+What is Configuration Management?
+
+* To keep track of all updates that are going into system
+* Also helps in a situation where a bug is in system due to some new changes and need to fix with minimum downtime
+* Instead of fixing the bug, we can roll back the new changes
+
+-------------------------------------------------------------------------
+
+Explain Infrastructure as Code?
+
+* To have a more organized way of managing infra
+* Instead of some throwaway scripts or manually configuring any cloud component, there should be a code repo where all of these will lie and any change in configuration should be done through it
+* It is wise to put it under source control also. This improves speed, consistency, and accountability
+
+-------------------------------------------------------------------------
+
+What is Ansible Vault?
+
+* Is used to keep sensitive data such as passwords
+
+-------------------------------------------------------------------------
+
+What is Ansible Galaxy?
+
+* Ansible can communicate with configured clients from the command line by using ansible command
+* It also allows you to automate configuration by using ansible-playbook command
+* This is a tool bundled with Ansible to create a base directory structure
+* Galaxy is a website that lets users find and share Ansible content
+
+-------------------------------------------------------------------------
+
+How do you use Ansible to create encrypted files?
+
+* To create an encrypted file, use the ‘ansible-vault create’ command
+
+-------------------------------------------------------------------------

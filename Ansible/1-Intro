@@ -1,0 +1,86 @@
+
+-------------------------------------------------------------------------
+
+* Is a tool to automate IT tasks
+* It's very difficult to do work on multiple or thousands OS machines
+* Is more efficient, less time consumption to do work
+* It's Agent Less
+* Just need to install only one agent in control machine, that itself will access target machines
+
+-------------------------------------------------------------------------
+
+Architecture:
+
+* Modules:
+	
+	* Small programs that do actual work
+	* They will be sent to target machines
+	* Once work is done at Target, will get removed
+	* Each module is a specific task
+
+	* Ex: YAML File
+
+		-name: create docker container
+			docker_container:
+				name: mydata
+				image: busybox
+
+* Playbook:
+
+	* When there are so many modules, will be complex, so we use Playbooks
+	* All modules are grouped as tasks in a single file
+
+	Ex:
+
+		tasks:	
+		- name: create docker container
+			docker_container:
+				name: mydata
+				image: busybox
+
+
+	* So where to execute them or which target? we add "host"
+
+		- hosts: database
+			remote_user: root
+
+			* Will be added on top of tasks
+			* This is called one Play (One Tasks section)
+			* Playbook can have multiple Plays
+
+
+	* So here how value comes to host? defined in Ansible Inventory list, it's host file
+		
+	Ex:
+
+		192.179.1.1
+		[database]
+		10.20.1.1
+
+* Inventory - all the machines involved in tasks execution
+		
+
+* Ansible Tower
+	
+	* Is a Ansible Dashboard by Red Hat
+	* Centrally store automation tasks
+	* across team
+	* configure permission
+	* manage inventory
+	* It's like monitoring dashboard, see which jobs have run and it's health
+
+-------------------------------------------------------------------------
+
+Ansible for Docker:
+
+* Ansible playbook can be replaced for Dockerfile, to create container...etc
+
+-------------------------------------------------------------------------
+
+Ansible v/s Puppet/Chef:
+
+* Ansible is more powerful
+* Uses simple YAML file but, they use Ruby which is difficult to learn
+* Ansible is agentless, but they need to be installed
+
+-------------------------------------------------------------------------
