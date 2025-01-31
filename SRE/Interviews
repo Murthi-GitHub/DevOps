@@ -1,0 +1,85 @@
+How do you measure SRE?
+By SLI/SLO, Error Budget!
+
+
+1. What does SRE mean to you?
+Answer: Site Reliability Engineering (SRE) is about ensuring the reliability, availability, and performance of production systems.
+
+2. What is error rate?
+The percentage of requests that fail out of the total number of requests made
+
+3. How do you monitor and measure system reliability?
+Answer: Using SLIs to track metrics like availability, latency, error rates, and traffic. Tools like Prometheus, Grafana, Datadog, and New Relic are common for monitoring.
+
+4. Explain the concept of "Toil" in SRE.
+Answer: Toil refers to repetitive, manual tasks that do not add long-term value and are often necessary to maintain the system. SRE aims to reduce toil through automation.
+
+5. What is the difference between DevOps and SRE?
+Answer: DevOps focuses on collaboration between development and operations teams to improve deployment speed, while SRE focuses on reliability and automation using engineering principles to manage operations.
+
+6. Can you explain the concept of a "blameless postmortem"?
+Answer: A blameless postmortem is a process to understand the root cause of an incident, focusing on the system, processes, and tools rather than blaming individuals. It encourages learning and continuous improvement.
+
+7. How do you ensure high availability?
+Answer: By employing techniques such as redundant systems, load balancing, failover mechanisms, horizontal scaling, and testing for disaster recovery scenarios.
+
+8. What is the importance of automation in SRE?
+Answer: Automation reduces human error, eliminates toil, and improves consistency and scalability. SREs automate repetitive tasks, infrastructure management, and incident responses to improve efficiency.
+
+9. What are the key challenges in scaling systems?
+Answer: Key challenges include managing increased traffic, ensuring fault tolerance, load balancing, managing data consistency, and monitoring for performance bottlenecks.
+
+10. How do you manage incident response?
+Answer: An effective incident response involves quick detection, clear communication, root cause analysis, incident resolution, and follow-up actions like postmortems and improvements in monitoring and alerting.
+
+11. What is postmortems?
+A detailed analysis conducted after a system outage or incident, where the team investigates the root cause of the problem, identifies contributing factors, and creates actionable steps to prevent similar issues from happening again
+
+11. Explain the concept of "Error Budget."
+Answer: An error budget is the acceptable amount of downtime or failures within a given period
+
+12. How do you handle system outages?
+Answer: By following a structured incident management process: detection, escalation, mitigation, resolution, and post-incident analysis. Automation of common fixes is crucial to reduce downtime.
+
+13. What is "chaos engineering"?
+Answer: Chaos engineering is a practice where you intentionally introduce failures into the system to identify weaknesses and improve its resilience.
+
+14. How do you handle scaling challenges in cloud environments?
+Answer: By leveraging auto-scaling, load balancing, resource management policies, and monitoring to ensure systems can handle increased demand without degradation.
+
+15. What is the role of an SRE in continuous integration and deployment (CI/CD)?
+Answer: An SRE ensures that the deployment pipeline is reliable, fast, and resilient, automating tests, releases, and monitoring to reduce downtime and deployment risks.
+
+16. What is observability, and why is it important?
+Answer: Observability refers to the ability to monitor, trace, and log system behavior to understand its state. It helps in identifying issues, troubleshooting, and improving system reliability.
+
+17. How do you ensure security in your SRE role?
+Answer: By applying security best practices, monitoring for vulnerabilities, using secure coding practices, patching systems, and ensuring that production systems are secure from attacks.
+
+18. What is a load balancer, and how does it work?
+Answer: A load balancer distributes incoming network traffic across multiple servers to ensure no single server is overwhelmed
+
+19. How do you prevent incidents from happening in the first place?
+Answer: Through proactive monitoring, capacity planning, automated testing, code reviews, disaster recovery testing, and a culture of continuous improvement.
+
+21. How do you manage database scalability?
+Answer: By partitioning data (sharding), using read replicas, indexing properly, load balancing database queries, and choosing the right database type for the workload.
+
+22. What are some common performance metrics you track in SRE?
+Answer: Latency, throughput, error rate, availability, resource utilization (CPU, memory), and response times.
+
+23. What is throughput?
+Rate at which a system processes requests or transactions within a given time period
+
+24. How do you manage a rolling update?
+Answer: By deploying new versions incrementally with minimal impact, using techniques like canary releases, blue/green deployments, and monitoring to ensure smooth rollouts.
+
+25. What is blue/green deployment?
+A software deployment strategy where two identical production environments, called "blue" and "green," are maintained, with the active "blue" environment serving live traffic while the new version is deployed to the "green" environment
+
+25. How do you measure the effectiveness of monitoring?
+Answer: By assessing if your monitoring tools capture meaningful metrics (SLIs), provide real-time alerts, and support fast incident response. Review incident response times and false positives/negatives.
+
+26. What is MTTR?
+A metric used in site reliability engineering (SRE) to measure how long it takes to fix a system after a failure
+
